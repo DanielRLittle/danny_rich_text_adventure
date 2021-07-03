@@ -1,5 +1,6 @@
 from player import Player
 
+# It's time to game
 def main():
     danny = Player(gender="male")
     print (f"Danny is a {danny.gender} human")
