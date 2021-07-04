@@ -5,7 +5,6 @@ class Monster:
         self.description = description
         self.default_hostility = True
         self.hostility = hostility
-        return
 
     def get_description(self):
         return self.description.get_description(self.alive)
