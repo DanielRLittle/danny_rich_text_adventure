@@ -15,12 +15,20 @@ def main():
 
     monsta = Monster(Description(
         "The monsta lies on the floor, seemingly lifeless as you stare into its bloodshot eyes that were so recently set on your demise. It might make a nice stew!",
-        "The bloodthirsty monsta stares at you, its bloodshot eyes burning with hatred. You get the impression it might be eyeing you up for a nice stew..."))
+        "The bloodthirsty monsta stares at you, its bloodshot eyes burning with hatred. You get the impression it might be eyeing you up for a nice stew..."),
+        { type(Player): True, type(Monster): True })
 
     print(monsta.get_description())
 
-    print("You attack!")
-    monsta.die()
+    monsta_hostility = monsta.is_hostile(danny)
+    print(" ".join([f"The monsta is { 'hostile' if monsta_hostility else 'friendly' }.",
+        f"You should probably { 'attack' if monsta_hostility else 'sit down for a nice cup of tea' }!"]))
+        
+    if monsta_hostility:
+        print("You attack!")
+        monsta.die()
+    else:
+        print("You sit for a nice cup of tea. +1XP")
 
     print(monsta.get_description())
 
