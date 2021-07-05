@@ -1,8 +1,11 @@
+from random import choice
+
 class Monster:
     """description should always be a Description object"""
-    def __init__(self, description):
+    def __init__(self, description, taunts = []):
         self.alive = True
         self.description = description
+        self.taunts = taunts
         return
 
     def get_description(self):
@@ -15,7 +18,14 @@ class Monster:
         return
 
     def taunt(self):
-        return
+        """Picks a taunt from the taunts list and prints it."""
+        try:
+            taunt_picked = choice(self.taunts)
+            print(f"The monster smiles, and says: {taunt_picked}")
+        except IndexError:
+            # if no taunts in list, print nothing
+            return 
+        
 
     def calculateXP(self):
         return
